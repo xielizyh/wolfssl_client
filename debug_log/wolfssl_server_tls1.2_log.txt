@@ -1,0 +1,269 @@
+root@xieli:/home/xieli/project/4---wolfssl/wolfssl-4.4.0-stable/examples/server# ./server -b -p 10000 -d -g
+wolfSSL Entering wolfSSL_Init
+wolfSSL Entering wolfCrypt_Init
+wolfSSL Entering TLSv1_2_server_method_ex
+wolfSSL Entering wolfSSL_CTX_new_ex
+wolfSSL Entering wolfSSL_CertManagerNew
+wolfSSL Leaving WOLFSSL_CTX_new, return 0
+wolfSSL Entering wolfSSL_CTX_use_certificate_chain_file
+Getting dynamic buffer
+wolfSSL Entering PemToDer
+Growing Tmp Chain Buffer
+Processing Cert Chain
+wolfSSL Entering PemToDer
+   Consumed another Cert in Chain
+Finished Processing Cert Chain
+Checking cert signature type
+wolfSSL Entering GetExplicitVersion
+wolfSSL Entering GetSerialNumber
+Got Cert Header
+wolfSSL Entering GetAlgoId
+wolfSSL Entering GetObjectId()
+Got Algo ID
+Getting Cert Name
+Getting Cert Name
+Got Subject Name
+wolfSSL Entering GetAlgoId
+wolfSSL Entering GetObjectId()
+Got Key
+Not ECDSA cert signature
+wolfSSL Entering wolfSSL_CTX_use_PrivateKey_file
+Getting dynamic buffer
+wolfSSL Entering PemToDer
+wolfSSL Entering SSL_new
+wolfSSL Leaving SSL_new, return 0
+wolfSSL Entering wolfSSL_SetHsDoneCb
+wolfSSL Entering SSL_set_fd
+wolfSSL Entering SSL_set_read_fd
+wolfSSL Leaving SSL_set_read_fd, return 1
+wolfSSL Entering SSL_set_write_fd
+wolfSSL Leaving SSL_set_write_fd, return 1
+Getting dynamic buffer
+wolfSSL Entering PemToDer
+wolfSSL Entering wolfSSL_SetTmpDH
+wolfSSL Leaving wolfSSL_SetTmpDH, return 0
+wolfSSL Entering SSL_accept()
+Embed Receive error
+        Connection reset
+wolfSSL error occurred, error = -308
+wolfSSL Entering SSL_get_error
+wolfSSL Leaving SSL_get_error, return -308
+wolfSSL Entering SSL_get_error
+wolfSSL Leaving SSL_get_error, return -308
+wolfSSL Entering ERR_error_string
+SSL_accept error -308, error state on socket
+wolfSSL error: SSL_accept failed
+root@xieli:/home/xieli/project/4---wolfssl/wolfssl-4.4.0-stable/examples/server# ./server -b -p 10000 -d -g
+wolfSSL Entering wolfSSL_Init
+wolfSSL Entering wolfCrypt_Init
+wolfSSL Entering TLSv1_2_server_method_ex
+wolfSSL Entering wolfSSL_CTX_new_ex
+wolfSSL Entering wolfSSL_CertManagerNew
+wolfSSL Leaving WOLFSSL_CTX_new, return 0
+wolfSSL Entering wolfSSL_CTX_use_certificate_chain_file
+Getting dynamic buffer
+wolfSSL Entering PemToDer
+Growing Tmp Chain Buffer
+Processing Cert Chain
+wolfSSL Entering PemToDer
+   Consumed another Cert in Chain
+Finished Processing Cert Chain
+Checking cert signature type
+wolfSSL Entering GetExplicitVersion
+wolfSSL Entering GetSerialNumber
+Got Cert Header
+wolfSSL Entering GetAlgoId
+wolfSSL Entering GetObjectId()
+Got Algo ID
+Getting Cert Name
+Getting Cert Name
+Got Subject Name
+wolfSSL Entering GetAlgoId
+wolfSSL Entering GetObjectId()
+Got Key
+Not ECDSA cert signature
+wolfSSL Entering wolfSSL_CTX_use_PrivateKey_file
+Getting dynamic buffer
+wolfSSL Entering PemToDer
+wolfSSL Entering SSL_new
+wolfSSL Leaving SSL_new, return 0
+wolfSSL Entering wolfSSL_SetHsDoneCb
+wolfSSL Entering SSL_set_fd
+wolfSSL Entering SSL_set_read_fd
+wolfSSL Leaving SSL_set_read_fd, return 1
+wolfSSL Entering SSL_set_write_fd
+wolfSSL Leaving SSL_set_write_fd, return 1
+Getting dynamic buffer
+wolfSSL Entering PemToDer
+wolfSSL Entering wolfSSL_SetTmpDH
+wolfSSL Leaving wolfSSL_SetTmpDH, return 0
+wolfSSL Entering SSL_accept()
+growing input buffer
+
+received record layer msg
+wolfSSL Entering DoHandShakeMsg()
+wolfSSL Entering DoHandShakeMsgType
+processing client hello
+wolfSSL Entering DoClientHello
+Matched No Compression
+Adding signature algorithms extension
+Key Share extension received
+Skipping Supported Versions - already processed
+Signature Algorithms extension received
+Point Formats extension received
+Supported Groups extension received
+wolfSSL Entering MatchSuite
+wolfSSL Entering VerifyServerSuite
+Requires RSA
+Requires AEAD
+Verified suite validity
+wolfSSL Leaving DoClientHello, return 0
+Shrinking input buffer
+
+wolfSSL Leaving DoHandShakeMsgType(), return 0
+wolfSSL Leaving DoHandShakeMsg(), return 0
+accept state ACCEPT_CLIENT_HELLO_DONE
+accept state ACCEPT_FIRST_REPLY_DONE
+wolfSSL Entering SendServerHello
+growing output buffer
+
+Point Formats extension to write
+Shrinking output buffer
+
+wolfSSL Leaving SendServerHello, return 0
+accept state SERVER_HELLO_SENT
+wolfSSL Entering SendCertificate
+growing output buffer
+
+Shrinking output buffer
+
+wolfSSL Leaving SendCertificate, return 0
+accept state CERT_SENT
+wolfSSL Entering SendCertificateStatus
+wolfSSL Leaving SendCertificateStatus, return 0
+accept state CERT_STATUS_SENT
+wolfSSL Entering SendServerKeyExchange
+Using ephemeral ECDH
+wolfSSL Entering EccMakeKey
+wolfSSL Leaving EccMakeKey, return 0
+Trying RSA private key
+Using RSA private key
+growing output buffer
+
+wolfSSL Entering RsaSign
+wolfSSL Using RSA PSS padding
+wolfSSL Leaving RsaSign, return 0
+wolfSSL Entering VerifyRsaSign
+wolfSSL Using RSA PSS un-padding
+wolfSSL Leaving VerifyRsaSign, return 0
+Shrinking output buffer
+
+wolfSSL Leaving SendServerKeyExchange, return 0
+accept state KEY_EXCHANGE_SENT
+accept state CERT_REQ_SENT
+wolfSSL Entering SendServerHelloDone
+growing output buffer
+
+Shrinking output buffer
+
+wolfSSL Leaving SendServerHelloDone, return 0
+accept state SERVER_HELLO_DONE
+growing input buffer
+
+received record layer msg
+wolfSSL Entering DoHandShakeMsg()
+wolfSSL Entering DoHandShakeMsgType
+processing client key exchange
+wolfSSL Entering DoClientKeyExchange
+wolfSSL Entering EccSharedSecret
+wolfSSL Leaving EccSharedSecret, return 0
+wolfSSL Leaving DoClientKeyExchange, return 0
+Shrinking input buffer
+
+wolfSSL Leaving DoHandShakeMsgType(), return 0
+wolfSSL Leaving DoHandShakeMsg(), return 0
+received record layer msg
+got CHANGE CIPHER SPEC
+growing input buffer
+
+received record layer msg
+wolfSSL Entering DoHandShakeMsg()
+wolfSSL Entering DoHandShakeMsgType
+processing finished
+wolfSSL Entering DoFinished
+wolfSSL Leaving DoFinished, return 0
+Shrinking input buffer
+
+wolfSSL Leaving DoHandShakeMsgType(), return 0
+wolfSSL Leaving DoHandShakeMsg(), return 0
+accept state  ACCEPT_SECOND_REPLY_DONE
+accept state  TICKET_SENT
+growing output buffer
+
+Shrinking output buffer
+
+accept state  CHANGE_CIPHER_SENT
+wolfSSL Entering SendFinished
+growing output buffer
+
+wolfSSL Entering BuildMessage
+wolfSSL Leaving BuildMessage, return 0
+Shrinking output buffer
+
+wolfSSL Leaving SendFinished, return 0
+accept state ACCEPT_FINISHED_DONE
+accept state ACCEPT_THIRD_REPLY_DONE
+wolfSSL Leaving SSL_accept(), return 1
+wolfSSL Entering wolfSSL_get_version
+SSL version is TLSv1.2
+wolfSSL Entering SSL_get_current_cipher
+wolfSSL Entering wolfSSL_CIPHER_get_name
+SSL cipher suite is TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+SSL curve name is SECP256R1
+wolfSSL Entering wolfSSL_read()
+wolfSSL Entering wolfSSL_read_internal()
+wolfSSL Entering ReceiveData()
+growing input buffer
+
+received record layer msg
+got app DATA
+Shrinking input buffer
+
+wolfSSL Leaving ReceiveData(), return 30
+wolfSSL Leaving wolfSSL_read_internal(), return 30
+wolfSSL Entering SSL_get_error
+wolfSSL Leaving SSL_get_error, return 0
+wolfSSL Entering SSL_get_fd
+wolfSSL Leaving SSL_get_fd, return 4
+Client message: message from esp32 tls client
+
+wolfSSL Entering SSL_get_error
+wolfSSL Leaving SSL_get_error, return 0
+wolfSSL Entering SSL_write()
+growing output buffer
+
+wolfSSL Entering BuildMessage
+wolfSSL Leaving BuildMessage, return 0
+Shrinking output buffer
+
+wolfSSL Leaving SSL_write(), return 226
+wolfSSL Entering SSL_shutdown()
+wolfSSL Entering SendAlert
+growing output buffer
+
+wolfSSL Entering BuildMessage
+wolfSSL Leaving BuildMessage, return 0
+Shrinking output buffer
+
+wolfSSL Leaving SendAlert, return 0
+wolfSSL Leaving SSL_shutdown(), return 2
+wolfSSL Entering SSL_free
+CTX ref count not 0 yet, no free
+wolfSSL Entering DtlsMsgPoolReset()
+wolfSSL Leaving SSL_free, return 0
+wolfSSL Entering SSL_CTX_free
+CTX ref count down to 0, doing full free
+wolfSSL Entering wolfSSL_CertManagerFree
+wolfSSL Leaving SSL_CTX_free, return 0
+wolfSSL Entering wolfSSL_Cleanup
+wolfSSL Entering wolfCrypt_Cleanup

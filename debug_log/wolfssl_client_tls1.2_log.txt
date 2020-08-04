@@ -1,0 +1,341 @@
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0018,len:4
+load:0x3fff001c,len:6908
+load:0x40078000,len:14724
+load:0x40080400,len:4292
+entry 0x400806e4
+I (71) boot: Chip Revision: 1
+I (72) boot_comm: chip revision: 1, min. bootloader chip revision: 0
+I (39) boot: ESP-IDF v4.0.1-dirty 2nd stage bootloader
+I (39) boot: compile time 14:50:34
+I (39) boot: Enabling RNG early entropy source...
+I (44) boot: SPI Speed      : 40MHz
+I (48) boot: SPI Mode       : DIO
+I (52) boot: SPI Flash Size : 4MB
+I (56) boot: Partition Table:
+I (60) boot: ## Label            Usage          Type ST Offset   Length
+I (67) boot:  0 nvs              WiFi data        01 02 00009000 00006000
+I (75) boot:  1 phy_init         RF data          01 01 0000f000 00001000
+I (82) boot:  2 factory          factory app      00 00 00010000 00100000
+I (90) boot: End of partition table
+I (94) boot_comm: chip revision: 1, min. application chip revision: 0
+I (101) esp_image: segment 0: paddr=0x00010020 vaddr=0x3f400020 size=0x294a4 (169124) map
+I (170) esp_image: segment 1: paddr=0x000394cc vaddr=0x3ffb0000 size=0x03894 ( 14484) load
+I (176) esp_image: segment 2: paddr=0x0003cd68 vaddr=0x40080000 size=0x00400 (  1024) load
+I (177) esp_image: segment 3: paddr=0x0003d170 vaddr=0x40080400 size=0x02ea0 ( 11936) load
+I (190) esp_image: segment 4: paddr=0x00040018 vaddr=0x400d0018 size=0xa4b5c (674652) map
+I (433) esp_image: segment 5: paddr=0x000e4b7c vaddr=0x400832a0 size=0x11f3c ( 73532) load
+I (477) boot: Loaded app from partition at offset 0x10000
+I (478) boot: Disabling RNG early entropy source...
+I (478) cpu_start: Pro cpu up.
+I (482) cpu_start: Application information:
+I (486) cpu_start: Project name:     wolfssl_client
+I (492) cpu_start: App version:      baa4e77-dirty
+I (497) cpu_start: Compile time:     Aug  3 2020 19:03:01
+I (504) cpu_start: ELF file SHA256:  eb65777b00a922dd...
+I (509) cpu_start: ESP-IDF:          v4.0.1-1-gfb1bea0e2-dirty
+I (516) cpu_start: Starting app cpu, entry point is 0x400811dc
+I (0) cpu_start: App cpu up.
+I (526) heap_init: Initializing. RAM available for dynamic allocation:
+I (533) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM
+I (539) heap_init: At 3FFBAEC0 len 00025140 (148 KiB): DRAM
+I (546) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM
+I (552) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM
+I (558) heap_init: At 400951DC len 0000AE24 (43 KiB): IRAM
+I (565) cpu_start: Pro cpu start user code
+I (583) spi_flash: detected chip: gd
+I (584) spi_flash: flash io: dio
+I (584) cpu_start: Starting scheduler on PRO CPU.
+I (0) cpu_start: Starting scheduler on APP CPU.
+I (591) tls_client: Start app_main...
+I (631) tls_client: Initialize wifi
+I (641) wifi:wifi driver task: 3ffc3564, prio:23, stack:6656, core=0
+I (641) system_api: Base MAC address is not set, read default base MAC address from BLK0 of EFUSE
+I (641) system_api: Base MAC address is not set, read default base MAC address from BLK0 of EFUSE
+I (671) wifi:wifi firmware version: aa5336b
+I (671) wifi:config NVS flash: enabled
+I (671) wifi:config nano formating: disabled
+I (671) wifi:Init dynamic tx buffer num: 32
+I (671) wifi:Init data frame dynamic rx buffer num: 32
+I (681) wifi:Init management frame dynamic rx buffer num: 32
+I (681) wifi:Init management short buffer num: 32
+I (691) wifi:Init static rx buffer size: 1600
+I (691) wifi:Init static rx buffer num: 10
+I (701) wifi:Init dynamic rx buffer num: 32
+I (811) phy: phy_version: 4180, cb3948e, Sep 12 2019, 16:39:13, 0, 0
+I (811) wifi:mode : sta (24:0a:c4:23:df:84)
+I (811) tls_client: wifi_init_sta finished.
+I (811) tls_client: connect to ap SSID:Xieli password:12345678
+I (821) tls_client: Set dummy time...
+I (821) tls_client: The current date/time is: Mon Aug  3 11:02:37 2020
+I (931) wifi:new:<6,0>, old:<1,0>, ap:<255,255>, sta:<6,0>, prof:1
+I (931) wifi:state: init -> auth (b0)
+I (941) wifi:state: auth -> assoc (0)
+I (951) wifi:state: assoc -> run (10)
+I (981) wifi:connected with Xieli, aid = 1, channel 6, BW20, bssid = 72:45:78:b6:d0:f2
+I (981) wifi:security: WPA2-PSK, phy: bgn, rssi: -34
+I (991) wifi:pm start, type: 1
+
+I (1041) wifi:AP's beacon interval = 102400 us, DTIM period = 1
+I (2131) tcpip_adapter: sta ip: 172.20.10.6, mask: 255.255.255.240, gw: 172.20.10.1
+I (2131) tls_client: got ip:172.20.10.6
+TLS13-AES128-GCM-SHA256:ECDHE-RSA-AES128-SHA:ECDHE-RSA-AES256-SHA:ECDHE-ECDSA-AES128-SHA:ECDHE-ECDSA-AES256-SHA:ECDHE-RSA-RC4-SHA:ECDHE-RSA-DES-CBC3-SHA:ECDHE-ECDSA-RC4-SHA:ECDHE-ECDSA-DES-CBC3-SHA:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-SHA256:ECDHE-ECDSA-AES128-SHA256:ECDHE-PSK-AES128-CBC-SHA256
+I (2161) wolfssl: wolfSSL Entering wolfSSL_Init
+I (2161) wolfssl: wolfSSL Entering wolfCrypt_Init
+I (2171) tls_client: get target IP address
+I (2181) tls_client: 114.55.142.4
+I (2181) wolfssl: wolfSSL Entering SSLv23_client_method_ex
+I (2191) wolfssl: wolfSSL Entering wolfSSL_CTX_new_ex
+I (2191) wolfssl: wolfSSL Entering wolfSSL_CertManagerNew
+I (2201) wolfssl: wolfSSL Leaving WOLFSSL_CTX_new, return 0
+I (2201) wolfssl: Loading...cert
+I (2211) wolfssl: wolfSSL Entering wolfSSL_CTX_load_verify_buffer_ex
+I (2211) wolfssl: Adding a CA
+I (2221) wolfssl: wolfSSL Entering GetExplicitVersion
+I (2221) wolfssl: wolfSSL Entering GetSerialNumber
+I (2231) wolfssl: Got Cert Header
+I (2231) wolfssl: wolfSSL Entering GetAlgoId
+I (2241) wolfssl: wolfSSL Entering GetObjectId()
+I (2241) wolfssl: Got Algo ID
+I (2251) wolfssl: Getting Cert Name
+I (2251) wolfssl: Getting Cert Name
+I (2261) wolfssl: Got Subject Name
+I (2261) wolfssl: wolfSSL Entering GetAlgoId
+I (2261) wolfssl: wolfSSL Entering GetObjectId()
+I (2271) wolfssl: Got Key
+I (2271) wolfssl: Parsed Past Key
+I (2281) wolfssl: wolfSSL Entering DecodeCertExtensions
+I (2281) wolfssl: wolfSSL Entering GetObjectId()
+I (2291) wolfssl: wolfSSL Entering DecodeSubjKeyId
+I (2291) wolfssl: wolfSSL Entering GetObjectId()
+I (2301) wolfssl: wolfSSL Entering DecodeAuthKeyId
+I (2301) wolfssl: wolfSSL Entering GetObjectId()
+I (2311) wolfssl: wolfSSL Entering DecodeBasicCaConstraint
+I (2321) wolfssl: wolfSSL Entering GetAlgoId
+I (2321) wolfssl: wolfSSL Entering GetObjectId()
+I (2331) wolfssl:       Parsed new CA
+I (2331) wolfssl:       Freeing Parsed CA
+I (2331) wolfssl:       Freeing der CA
+I (2341) wolfssl:               OK Freeing der CA
+I (2341) wolfssl: wolfSSL Leaving AddCA, return 0
+I (2351) wolfssl: wolfSSL Entering wolfSSL_CTX_set_verify
+I (2351) wolfssl: inet_pton
+I (2361) wolfssl: Connecting to server....114.55.142.4(port:10000)
+Connecting to server....114.55.142.4(port:10000)
+I (2641) wolfssl: Create a WOLFSSL object
+I (2641) wolfssl: wolfSSL Entering SSL_new
+I (2641) wolfssl: wolfSSL Leaving SSL_new, return 0
+I (2641) wolfssl: wolfSSL Entering SSL_set_fd
+I (2651) wolfssl: wolfSSL Entering SSL_set_read_fd
+I (2651) wolfssl: wolfSSL Leaving SSL_set_read_fd, return 1
+I (2661) wolfssl: wolfSSL Entering SSL_set_write_fd
+I (2661) wolfssl: wolfSSL Leaving SSL_set_write_fd, return 1
+I (2671) wolfssl: Connect to wolfSSL on the server side
+I (2681) wolfssl: wolfSSL Entering SSL_connect()
+I (2681) wolfssl: wolfSSL Entering SendTls13ClientHello
+I (2691) wolfssl: Adding signature algorithms extension
+I (2691) wolfssl: Adding supported versions extension
+I (3211) wolfssl: growing output buffer
+
+I (3211) wolfssl: Key Share extension to write
+I (3211) wolfssl: Supported Versions extension to write
+I (3211) wolfssl: Signature Algorithms extension to write
+I (3221) wolfssl: Point Formats extension to write
+I (3221) wolfssl: Supported Groups extension to write
+I (3231) wolfssl: Shrinking output buffer
+
+I (3231) wolfssl: wolfSSL Leaving SendTls13ClientHello, return 0
+I (3241) wolfssl: connect state: CLIENT_HELLO_SENT
+I (3391) wolfssl: growing input buffer
+
+I (3401) wolfssl: received record layer msg
+I (3401) wolfssl: wolfSSL Entering DoTls13HandShakeMsg()
+I (3401) wolfssl: wolfSSL Entering DoTls13HandShakeMsgType
+I (3411) wolfssl: processing server hello
+I (3411) wolfssl: wolfSSL Entering DoTls13ServerHello
+I (3421) wolfssl: Point Formats extension received
+I (3421) wolfssl: wolfSSL Entering VerifyClientSuite
+I (3431) wolfssl: wolfSSL Leaving DoTls13ServerHello, return 0
+I (3441) wolfssl: Shrinking input buffer
+
+I (3441) wolfssl: wolfSSL Leaving DoTls13HandShakeMsgType(), return 0
+I (3451) wolfssl: wolfSSL Leaving DoTls13HandShakeMsg(), return 0
+I (3451) wolfssl: growing input buffer
+
+I (3461) wolfssl: received record layer msg
+I (3461) wolfssl: wolfSSL Entering DoHandShakeMsg()
+I (3471) wolfssl: wolfSSL Entering DoHandShakeMsgType
+I (3481) wolfssl: processing certificate
+I (3481) wolfssl: wolfSSL Entering DoCertificate
+I (3481) wolfssl: wolfSSL Entering ProcessPeerCerts
+I (3491) wolfssl: Loading peer's cert chain
+I (3491) wolfssl:       Put another cert into chain
+I (3501) wolfssl:       Put another cert into chain
+I (3501) wolfssl: wolfSSL Entering GetExplicitVersion
+I (3511) wolfssl: wolfSSL Entering GetSerialNumber
+I (3511) wolfssl: Got Cert Header
+I (3521) wolfssl: wolfSSL Entering GetAlgoId
+I (3521) wolfssl: wolfSSL Entering GetObjectId()
+I (3531) wolfssl: Got Algo ID
+I (3531) wolfssl: Getting Cert Name
+I (3541) wolfssl: Getting Cert Name
+I (3541) wolfssl: Got Subject Name
+I (3541) wolfssl: wolfSSL Entering GetAlgoId
+I (3551) wolfssl: wolfSSL Entering GetObjectId()
+I (3551) wolfssl: Got Key
+I (3561) wolfssl: Parsed Past Key
+I (3561) wolfssl: wolfSSL Entering DecodeCertExtensions
+I (3571) wolfssl: wolfSSL Entering GetObjectId()
+I (3571) wolfssl: wolfSSL Entering DecodeSubjKeyId
+I (3581) wolfssl: wolfSSL Entering GetObjectId()
+I (3581) wolfssl: wolfSSL Entering DecodeAuthKeyId
+I (3591) wolfssl: wolfSSL Entering GetObjectId()
+I (3601) wolfssl: wolfSSL Entering DecodeBasicCaConstraint
+I (3601) wolfssl: wolfSSL Entering GetAlgoId
+I (3611) wolfssl: wolfSSL Entering GetObjectId()
+I (3611) wolfssl: Chain cert not verified by option, not adding as CA
+I (3621) wolfssl: Verifying Peer's cert
+I (3621) wolfssl: wolfSSL Entering GetExplicitVersion
+I (3631) wolfssl: wolfSSL Entering GetSerialNumber
+I (3631) wolfssl: Got Cert Header
+I (3641) wolfssl: wolfSSL Entering GetAlgoId
+I (3641) wolfssl: wolfSSL Entering GetObjectId()
+I (3651) wolfssl: Got Algo ID
+I (3651) wolfssl: Getting Cert Name
+I (3661) wolfssl: Getting Cert Name
+I (3661) wolfssl: Got Subject Name
+I (3661) wolfssl: wolfSSL Entering GetAlgoId
+I (3671) wolfssl: wolfSSL Entering GetObjectId()
+I (3671) wolfssl: Got Key
+I (3681) wolfssl: Parsed Past Key
+I (3681) wolfssl: wolfSSL Entering DecodeCertExtensions
+I (3691) wolfssl: wolfSSL Entering GetObjectId()
+I (3691) wolfssl: wolfSSL Entering DecodeSubjKeyId
+I (3701) wolfssl: wolfSSL Entering GetObjectId()
+I (3701) wolfssl: wolfSSL Entering DecodeAuthKeyId
+I (3711) wolfssl: wolfSSL Entering GetObjectId()
+I (3711) wolfssl: wolfSSL Entering DecodeBasicCaConstraint
+I (3721) wolfssl: wolfSSL Entering GetAlgoId
+I (3731) wolfssl: wolfSSL Entering GetObjectId()
+I (3731) wolfssl: Verified Peer's cert
+I (3741) wolfssl: wolfSSL Leaving ProcessPeerCerts, return 0
+I (3741) wolfssl: wolfSSL Leaving DoCertificate, return 0
+I (3751) wolfssl: Shrinking input buffer
+
+I (3751) wolfssl: wolfSSL Leaving DoHandShakeMsgType(), return 0
+I (3761) wolfssl: wolfSSL Leaving DoHandShakeMsg(), return 0
+I (3771) wolfssl: growing input buffer
+
+I (3771) wolfssl: received record layer msg
+I (3781) wolfssl: wolfSSL Entering DoHandShakeMsg()
+I (3781) wolfssl: wolfSSL Entering DoHandShakeMsgType
+I (3791) wolfssl: processing server key exchange
+I (3791) wolfssl: wolfSSL Entering DoServerKeyExchange
+I (3801) wolfssl: wolfSSL Entering RsaVerify
+I (3831) wolfssl: wolfSSL Using RSA PSS un-padding
+I (3831) wolfssl: wolfSSL Leaving RsaVerify, return 128
+I (3841) wolfssl: wolfSSL Leaving DoServerKeyExchange, return 0
+I (3841) wolfssl: Shrinking input buffer
+
+I (3841) wolfssl: wolfSSL Leaving DoHandShakeMsgType(), return 0
+I (3851) wolfssl: wolfSSL Leaving DoHandShakeMsg(), return 0
+I (3861) wolfssl: received record layer msg
+I (3861) wolfssl: wolfSSL Entering DoHandShakeMsg()
+I (3871) wolfssl: wolfSSL Entering DoHandShakeMsgType
+I (3871) wolfssl: processing server hello done
+I (3881) wolfssl: wolfSSL Leaving DoHandShakeMsgType(), return 0
+I (3881) wolfssl: wolfSSL Leaving DoHandShakeMsg(), return 0
+I (3891) wolfssl: connect state: HELLO_AGAIN
+I (3901) wolfssl: connect state: HELLO_AGAIN_REPLY
+I (3901) wolfssl: connect state: FIRST_REPLY_DONE
+I (3911) wolfssl: connect state: FIRST_REPLY_FIRST
+I (3911) wolfssl: wolfSSL Entering SendClientKeyExchange
+I (3921) wolfssl: wolfSSL Entering EccMakeKey
+I (4451) wolfssl: wolfSSL Leaving EccMakeKey, return 0
+I (4451) wolfssl: wolfSSL Entering EccSharedSecret
+I (4961) wolfssl: wolfSSL Leaving EccSharedSecret, return 0
+I (4961) wolfssl: growing output buffer
+
+I (4971) wolfssl: Shrinking output buffer
+
+I (4971) wolfssl: wolfSSL Leaving SendClientKeyExchange, return 0
+I (4971) wolfssl: sent: client key exchange
+I (4981) wolfssl: connect state: FIRST_REPLY_SECOND
+I (4981) wolfssl: connect state: FIRST_REPLY_THIRD
+I (4991) wolfssl: growing output buffer
+
+I (4991) wolfssl: Shrinking output buffer
+
+I (5001) wolfssl: sent: change cipher spec
+I (5001) wolfssl: connect state: FIRST_REPLY_FOURTH
+I (5011) wolfssl: wolfSSL Entering SendFinished
+I (5021) wolfssl: growing output buffer
+
+I (5021) wolfssl: wolfSSL Entering BuildMessage
+I (5031) wolfssl: wolfSSL Leaving BuildMessage, return 0
+I (5031) wolfssl: Shrinking output buffer
+
+I (5041) wolfssl: wolfSSL Leaving SendFinished, return 0
+I (5041) wolfssl: sent: finished
+I (5051) wolfssl: connect state: FINISHED_DONE
+I (5241) wolfssl: received record layer msg
+I (5241) wolfssl: got CHANGE CIPHER SPEC
+I (5241) wolfssl: growing input buffer
+
+I (5241) wolfssl: received record layer msg
+I (5241) wolfssl: wolfSSL Entering DoHandShakeMsg()
+I (5251) wolfssl: wolfSSL Entering DoHandShakeMsgType
+I (5261) wolfssl: processing finished
+I (5261) wolfssl: wolfSSL Entering DoFinished
+I (5271) wolfssl: wolfSSL Leaving DoFinished, return 0
+I (5271) wolfssl: Shrinking input buffer
+
+I (5281) wolfssl: wolfSSL Leaving DoHandShakeMsgType(), return 0
+I (5281) wolfssl: wolfSSL Leaving DoHandShakeMsg(), return 0
+I (5291) wolfssl: connect state: SECOND_REPLY_DONE
+I (5291) wolfssl: wolfSSL Leaving SSL_connect(), return 1
+I (5301) wolfssl: Message for server: 
+I (5301) wolfssl: wolfSSL Entering SSL_write()
+I (5311) wolfssl: growing output buffer
+
+I (5311) wolfssl: wolfSSL Entering BuildMessage
+I (5321) wolfssl: wolfSSL Leaving BuildMessage, return 0
+I (5331) wolfssl: Shrinking output buffer
+
+I (5331) wolfssl: wolfSSL Leaving SSL_write(), return 30
+I (5341) wolfssl: wolfSSL Entering wolfSSL_read()
+I (5341) wolfssl: wolfSSL Entering wolfSSL_read_internal()
+I (5351) wolfssl: wolfSSL Entering ReceiveData()
+I (5451) wolfssl: growing input buffer
+
+I (5451) wolfssl: received record layer msg
+I (5451) wolfssl: got app DATA
+I (5451) wolfssl: Shrinking input buffer
+
+I (5451) wolfssl: wolfSSL Leaving ReceiveData(), return 226
+I (5461) wolfssl: wolfSSL Leaving wolfSSL_read_internal(), return 226
+Server:HTTP/1.1 200 OK
+Content-Type: text/html
+Connection: close
+Content-Length: 141
+
+<html>
+<head>
+<title>Welcome to wolfSSL!</title>
+</head>
+<body>
+<p>wolfSSL has successfully performed handshake!</p>
+</body>
+</html>
+I (5491) wolfssl: wolfSSL Entering SSL_free
+I (5491) wolfssl: CTX ref count not 0 yet, no free
+I (5501) wolfssl: wolfSSL Leaving SSL_free, return 0
+I (5501) wolfssl: wolfSSL Entering SSL_CTX_free
+I (5511) wolfssl: CTX ref count down to 0, doing full free
+I (5511) wolfssl: wolfSSL Entering wolfSSL_CertManagerFree
+I (5521) wolfssl: wolfSSL Leaving SSL_CTX_free, return 0
+I (5531) wolfssl: wolfSSL Entering wolfSSL_Cleanup
+I (5531) wolfssl: wolfSSL Entering wolfCrypt_Cleanup

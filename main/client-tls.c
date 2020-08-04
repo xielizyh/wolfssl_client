@@ -122,10 +122,10 @@ void my_atmel_free(int slotId)
 void tls_smp_client_task()
 {
     int ret;
-    int sockfd;
-    int doPeerCheck;
-    int sendGet;
-    struct sockaddr_in servAddr;
+    int sockfd; /* socket句柄 */
+    int doPeerCheck;    /* 对端验证 */
+    int sendGet;    /* 发送请求 */
+    struct sockaddr_in servAddr;   /* 服务端地址 */
     char buff[256];
     const char* ch = TLS_SMP_TARGET_HOST;
     size_t len;
@@ -144,22 +144,23 @@ void tls_smp_client_task()
 
 #ifdef DEBUG_WOLFSSL
     WOLFSSL_MSG("Debug ON");
-    wolfSSL_Debugging_ON();
-    ShowCiphers();
+    wolfSSL_Debugging_ON(); /* 打开调试 */
+    ShowCiphers();  /* 显示所有密码套件 */
 #endif
     /* Initialize wolfSSL */
-    wolfSSL_Init();
+    wolfSSL_Init(); /* wolfssl初始化 */
 
     /* Create a socket that uses an internet IPv4 address,
      * Sets the socket to be stream based (TCP),
      * 0 means choose the default protocol. */
+    /* 创建套接字 */
     if ((sockfd = socket(AF_INET, SOCK_STREAM, 0)) == -1) {
         ESP_LOGE(TAG,"ERROR: failed to create the socket\n");
     }
 
     ESP_LOGI(TAG, "get target IP address");
 
-    hp = gethostbyname(TLS_SMP_TARGET_HOST);
+    hp = gethostbyname(TLS_SMP_TARGET_HOST);    /* 获取主机IP */
     if (!hp) {
          ESP_LOGE(TAG, "Failed to get host name.");
          ip4_addr = NULL;
@@ -169,16 +170,20 @@ void tls_smp_client_task()
          ESP_LOGI(TAG, IPSTR, IP2STR(ip4_addr));
     }
     /* Create and initialize WOLFSSL_CTX */
-    if ((ctx = wolfSSL_CTX_new(wolfSSLv23_client_method())) == NULL) {
+    /* 新建wolfssl 兼容SSLv3 - TLS 1.2(robust) */
+    if ((ctx = wolfSSL_CTX_new(/*wolfSSLv23_client_method()*/wolfTLSv1_3_client_method())) == NULL) {
         ESP_LOGE(TAG,"ERROR: failed to create WOLFSSL_CTX\n");
     }
     WOLFSSL_MSG("Loading...cert");
     /* Load client certificates into WOLFSSL_CTX */
+    /* 加载客户端证书 */
     if ((ret = wolfSSL_CTX_load_verify_buffer(ctx, ca_cert_der_2048,
         sizeof_ca_cert_der_2048, WOLFSSL_FILETYPE_ASN1)) != SSL_SUCCESS) {
         ESP_LOGE(TAG,"ERROR: failed to load %d, please check the file.\n",ret);
     }
+
     /* not peer check */
+    /* 不进行对端验证 */
     if( doPeerCheck == 0 ){
         wolfSSL_CTX_set_verify(ctx, WOLFSSL_VERIFY_NONE, 0);
     } else {
@@ -208,6 +213,7 @@ void tls_smp_client_task()
     if(*ch >= '1' && *ch <= '9') {
         /* Get the server IPv4 address from the command line call */
         WOLFSSL_MSG("inet_pton");
+        /* 网络主机地址ip(如192.168.1.10)为二进制数值 */
         if ((ret = inet_pton(AF_INET, TLS_SMP_TARGET_HOST,
                  &servAddr.sin_addr)) != 1) {
             ESP_LOGE(TAG,"ERROR: invalid address ret=%d\n", ret);
@@ -221,6 +227,7 @@ void tls_smp_client_task()
                                                       , DEFAULT_PORT);
     WOLFSSL_MSG(buff);
     printf("%s\n",buff);
+    /* 连接服务端 */
     if ((ret = connect(sockfd, (struct sockaddr *)&servAddr,
                                     sizeof(servAddr))) == -1){
         ESP_LOGE(TAG,"ERROR: failed to connect ret=%d\n", ret);
@@ -228,6 +235,7 @@ void tls_smp_client_task()
 
     WOLFSSL_MSG("Create a WOLFSSL object");
     /* Create a WOLFSSL object */
+    /* 创建wolfssl对象 */
     if ((ssl = wolfSSL_new(ctx)) == NULL) {
         ESP_LOGE(TAG,"ERROR: failed to create WOLFSSL object\n");
     }
@@ -244,10 +252,12 @@ void tls_smp_client_task()
 #endif
 
     /* Attach wolfSSL to the socket */
+    /* 绑定wolfssl到套接字 */
     wolfSSL_set_fd(ssl, sockfd);
 
     WOLFSSL_MSG("Connect to wolfSSL on the server side");
     /* Connect to wolfSSL on the server side */
+    /* 连接到服务端WolfSSL */
     if (wolfSSL_connect(ssl) != SSL_SUCCESS) {
         ESP_LOGE(TAG,"ERROR: failed to connect to wolfSSL\n");
     }

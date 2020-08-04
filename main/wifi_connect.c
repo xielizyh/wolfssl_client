@@ -53,7 +53,7 @@ static void set_time()
     char strftime_buf[64];
     /* please update the time if seeing unknown failure. */
     /* this could cause TLS communication failure due to time expiration */
-    utctime.tv_sec = 1567125910; /* dummy time: Fri Aug 30 09:45:00 2019 */
+    utctime.tv_sec = 1596452557; /* dummy time: Fri Aug 30 09:45:00 2019 */
     utctime.tv_usec = 0;
     tz.tz_minuteswest = 0;
     tz.tz_dsttime = 0;
